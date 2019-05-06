@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">mvvm</string>
+    <string name="daily_selection">每日精选</string>
+    <string name="discovery">发现</string>
+    <string name="popular">热门</string>
+</resources>
