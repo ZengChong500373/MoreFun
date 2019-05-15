@@ -11,9 +11,9 @@ import android.view.View;
 import org.easy.ui.viewpager.TabViewpager;
 
 import more.fun.mvp.R;
-import more.fun.mvp.ui.DiscoveryFragment;
-import more.fun.mvp.ui.HomeFragment;
-import more.fun.mvp.ui.HotFragment;
+import more.fun.mvp.ui.fragment.DiscoveryFragment;
+import more.fun.mvp.ui.fragment.HomeFragment;
+import more.fun.mvp.ui.fragment.HotFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TabViewpager tab_main;

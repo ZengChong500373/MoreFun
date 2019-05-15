@@ -1,7 +1,10 @@
 package more.fun.mvp.logic;
 
+import java.util.List;
+
 import more.fun.mvp.base.BasePresenter;
 import more.fun.mvp.base.BaseResponseView;
+import more.fun.mvp.entity.DiscoveryList1;
 
 /**
  * author : jyh
@@ -12,6 +15,7 @@ import more.fun.mvp.base.BaseResponseView;
 public interface DiscoveryListContract {
 
     interface View extends BaseResponseView {
+        void onLoadSortSuccess(List<DiscoveryList1> data);
 
     }
 

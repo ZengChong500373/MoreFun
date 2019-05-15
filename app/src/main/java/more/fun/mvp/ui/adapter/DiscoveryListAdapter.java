@@ -2,13 +2,24 @@ package more.fun.mvp.ui.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+
+import org.easy.loader.GlideUtils;
 import org.easy.ui.recycler.base.BaseRecyclerHolder;
 import org.easy.ui.recycler.listener.ItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import more.fun.mvp.R;
+import more.fun.mvp.entity.DiscoveryList1;
+import more.fun.mvp.ui.holder.DiscoveryHodler1;
 
 /**
  * author : jyh
@@ -18,27 +29,41 @@ import java.util.List;
  * describe :
  */
 public class DiscoveryListAdapter extends RecyclerView.Adapter<BaseRecyclerHolder> {
-    protected List<String> list = new ArrayList<>();
-    protected ItemClickListener itemListener;
-private int type=0;
+    protected List<DiscoveryList1> list = new ArrayList<>();
+    private ItemClickListener itemListener;
+    private int type = 0;
+
     public void setItemListener(ItemClickListener mListener) {
         this.itemListener = mListener;
     }
+
     @NonNull
     @Override
-    public BaseRecyclerHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int currentType) {
-        if (currentType==0){
+    public BaseRecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int currentType) {
+        if (currentType == 0) {
             return null;
         }
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_discovery_list_item1, parent, false);
+        return new DiscoveryHodler1(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseRecyclerHolder baseRecyclerHolder, int i) {
+    public void onBindViewHolder(@NonNull BaseRecyclerHolder baseHolder, int i) {
 
+        switch (getItemViewType(i)) {
+            case 0:
+                break;
+            case 1:
+                DiscoveryList1 bean = list.get(i);
+                DiscoveryHodler1 hodler1 = (DiscoveryHodler1) baseHolder;
+//                hodler1.type.setText("#"+bean.getName());
+                GlideUtils.loadPic(bean.getHeaderImage(), hodler1.cover);
+                break;
+        }
     }
 
-    public int getType() {
+    @Override
+    public int getItemViewType(int position) {
         return type;
     }
 
@@ -47,9 +72,17 @@ private int type=0;
         notifyDataSetChanged();
     }
 
+    public void setData(List<DiscoveryList1> list) {
+        if (list == null || list.size() == 0) {
+            return;
+        }
+        this.list.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
 
-        return 0;
+        return list.size();
     }
 }

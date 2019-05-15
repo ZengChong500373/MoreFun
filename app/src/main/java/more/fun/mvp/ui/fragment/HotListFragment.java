@@ -1,11 +1,9 @@
-package more.fun.mvp.ui;
+package more.fun.mvp.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import org.easy.tools.Key;
 import org.easy.tools.utils.ToastUtils;
@@ -69,14 +67,16 @@ public class HotListFragment extends MvpFragment<HotListPresenterImpl> implement
         adapter.setData(data.getItemList());
     }
 
-    @Override
-    public void onFail(String str, int code) {
 
-    }
     @Override
     public void hideLoading() {
         super.hideLoading();
         control_layout.hideLoading();
+    }
+
+    @Override
+    public void showError(String str, int code) {
+
     }
 
     @Override

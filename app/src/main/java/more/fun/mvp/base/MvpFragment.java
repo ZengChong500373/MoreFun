@@ -26,7 +26,7 @@ public abstract class MvpFragment<P extends BasePresenter>  extends LazyFragment
     }
 
     @Override
-    public void showError(String msg) {
-        ToastUtils.getInstance().show(msg);
+    public void showError(String str, int code) {
+        ToastUtils.getInstance().show(str);
     }
 }

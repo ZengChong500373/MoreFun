@@ -1,4 +1,4 @@
-package more.fun.mvp.ui;
+package more.fun.mvp.ui.fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -69,15 +69,17 @@ public class HotFragment extends MvpFragment<HotPresenterImpl> implements HotCon
         vp.setAdapter(adapter);
     }
 
-    @Override
-    public void onFail(String str, int code) {
 
-    }
 
     @Override
     public void hideLoading() {
         super.hideLoading();
         control_layout.hideLoading();
+    }
+
+    @Override
+    public void showError(String str, int code) {
+
     }
 
     @Override

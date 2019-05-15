@@ -7,6 +7,7 @@ import io.reactivex.functions.Consumer;
 import more.fun.mvp.base.GlobalConstant;
 import more.fun.mvp.base.RxUtils;
 import more.fun.mvp.entity.HotTabs;
+import more.fun.mvp.http.HttpThrowable;
 import more.fun.mvp.http.NetWork;
 
 /**
@@ -34,6 +35,8 @@ public class HotPresenterImpl implements HotContract.Presenter {
     @Override
     public void initTabs() {
         view.showLoading();
+        HttpThrowable throwable= HttpThrowable.getInstance();
+        throwable.setView(view);
         disposable = getTabs().subscribe(new Consumer<HotTabs>() {
             @Override
             public void accept(HotTabs hotTabs) throws Exception {
@@ -41,16 +44,11 @@ public class HotPresenterImpl implements HotContract.Presenter {
                     view.hideLoading();
                     view.onLoadSuccess(hotTabs);
                 } else {
-                    view.onFail("empty", GlobalConstant.layout_empty);
+                    view.showError("empty", GlobalConstant.layout_empty);
                 }
 
             }
-        }, new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                view.onFail("error", GlobalConstant.layout_error);
-            }
-        });
+        },throwable);
 
 
     }

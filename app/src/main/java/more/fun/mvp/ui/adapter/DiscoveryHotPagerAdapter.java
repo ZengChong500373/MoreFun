@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import more.fun.mvp.App;
-import more.fun.mvp.ui.DiscoveryListFragment;
-import more.fun.mvp.ui.HotListFragment;
+import more.fun.mvp.ui.fragment.DiscoveryListFragment;
+import more.fun.mvp.ui.fragment.HotListFragment;
 
 /**
  * author : jyh

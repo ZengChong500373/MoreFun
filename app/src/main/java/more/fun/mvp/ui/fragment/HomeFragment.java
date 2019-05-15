@@ -1,4 +1,4 @@
-package more.fun.mvp.ui;
+package more.fun.mvp.ui.fragment;
 
 import more.fun.mvp.R;
 import more.fun.mvp.base.LazyFragment;

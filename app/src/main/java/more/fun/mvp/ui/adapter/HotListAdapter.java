@@ -35,23 +35,23 @@ public class HotListAdapter extends BaseRecyclerAdapter<HotList.HotItem, HotList
     @Override
     public void MyHolder(@NonNull HotListHolder holder, int position) {
         super.MyHolder(holder, position);
-        HotList.HotItem bean=list.get(position);
+        HotList.HotItem bean = list.get(position);
         Glide.with(holder.img.getContext())
                 .load(bean.getData().getCover().getFeed())
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.img);
-       holder.tv_title.setText(bean.getData().getTitle());
-        holder.tv_type.setText("#"+bean.getData().getCategory());
+        holder.tv_title.setText(bean.getData().getTitle());
+        holder.tv_type.setText("#" + bean.getData().getCategory());
     }
 
-    class HotListHolder extends BaseRecyclerHolder{
+    class HotListHolder extends BaseRecyclerHolder {
         ImageView img;
-        TextView tv_title,tv_type;
+        TextView tv_title, tv_type;
         HotListHolder(View itemView) {
-           super(itemView);
-           img=itemView.findViewById(R.id.img);
-           tv_title=itemView.findViewById(R.id.tv_title);
-           tv_type=itemView.findViewById(R.id.tv_type);
-       }
-   }
+            super(itemView);
+            img = itemView.findViewById(R.id.img);
+            tv_title = itemView.findViewById(R.id.tv_title);
+            tv_type = itemView.findViewById(R.id.tv_type);
+        }
+    }
 }

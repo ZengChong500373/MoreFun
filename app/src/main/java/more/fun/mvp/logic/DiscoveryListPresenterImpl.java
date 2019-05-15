@@ -2,11 +2,15 @@ package more.fun.mvp.logic;
 
 import android.util.Log;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import more.fun.mvp.base.GlobalConstant;
 import more.fun.mvp.base.RxUtils;
 import more.fun.mvp.entity.DiscoveryList1;
+import more.fun.mvp.http.HttpThrowable;
 import more.fun.mvp.http.NetWork;
 
 /**
@@ -32,35 +36,31 @@ public class DiscoveryListPresenterImpl implements DiscoveryListContract.Present
     }
 
 
-
-
     @Override
     public void init(int position) {
         view.showLoading();
-        if (position==0){
+        HttpThrowable throwable= HttpThrowable.getInstance();
+        throwable.setView(view);
+        if (position == 0) {
 
-        }else {
-            disposable = getTpye1().subscribe(new Consumer<DiscoveryList1>() {
+        } else {
+            disposable = getTpye1().subscribe(new Consumer<List<DiscoveryList1>>() {
                 @Override
-                public void accept(DiscoveryList1 data) throws Exception {
+                public void accept(List<DiscoveryList1> data) throws Exception {
                     if (data != null) {
                         view.hideLoading();
-                        Log.e("1","");
+                        view.onLoadSortSuccess(data);
                     } else {
-                        Log.e("1","");
+                        view.showError("empty", GlobalConstant.layout_empty);
                     }
 
                 }
-            }, new Consumer<Throwable>() {
-                @Override
-                public void accept(Throwable throwable) throws Exception {
-                    Log.e("1","");
-                }
-            });
+            },throwable);
         }
 
     }
-    public Observable<DiscoveryList1> getTpye1(){
-        return  NetWork.getInsatance().getMethods().getDisCoverList1().compose(RxUtils.<DiscoveryList1>commTrans());
+
+    private Observable<List<DiscoveryList1>> getTpye1() {
+        return NetWork.getInsatance().getMethods().getDisCoverList1().compose(RxUtils.<List<DiscoveryList1>>commTrans());
     }
 }

@@ -13,7 +13,7 @@ public interface HotContract {
 
     interface View<T> extends BaseResponseView {
         void onLoadSuccess(T t);
-        void onFail(String str, int code);
+
     }
 
 

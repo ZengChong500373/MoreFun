@@ -1,5 +1,7 @@
 package more.fun.mvp.http;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import more.fun.mvp.entity.DiscoveryList1;
 import more.fun.mvp.entity.HotList;
@@ -44,5 +46,5 @@ public interface HttpMethods {
      * @return
      */
     @GET("v4/categories")
-    Observable<DiscoveryList1> getDisCoverList1();
+    Observable<List<DiscoveryList1>> getDisCoverList1();
 }

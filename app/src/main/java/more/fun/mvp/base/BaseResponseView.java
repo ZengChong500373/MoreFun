@@ -17,5 +17,5 @@ public interface BaseResponseView {
     /**
      * 报错的返回
      * */
-    void showError(String error);
+    void showError(String str, int code);
 }
