@@ -1,6 +1,6 @@
 package more.fun.mvvm.model;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.SparseArray;
 
 import more.fun.mvvm.ui.DiscoveryFragment;

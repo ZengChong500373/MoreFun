@@ -1,10 +1,8 @@
 package more.fun.mvp.ui.fragment;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.viewpager.widget.ViewPager;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +11,6 @@ import org.easy.ui.StatusControlLayout;
 
 import more.fun.mvp.App;
 import more.fun.mvp.R;
-import more.fun.mvp.base.LazyFragment;
 import more.fun.mvp.base.MvpFragment;
 import more.fun.mvp.entity.HotTabs;
 import more.fun.mvp.logic.HotContract;

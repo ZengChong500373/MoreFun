@@ -16,4 +16,5 @@
         android:icon="@drawable/main_tab_popular_selector"
         android:title="@string/hot" />
 
+
 </menu>

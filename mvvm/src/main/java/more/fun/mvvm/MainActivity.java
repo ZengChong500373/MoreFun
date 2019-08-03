@@ -1,12 +1,12 @@
 package more.fun.mvvm;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.easy.ui.viewpager.TabViewpager;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tab_main=findViewById(R.id.tab_main);
         tab_main.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
-        tab_main.setOffscreenPageLimit(3);
+        tab_main.setOffscreenPageLimit(1);
         navigation = findViewById(R.id.navigation);
         navigation.setItemIconTintList(null);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

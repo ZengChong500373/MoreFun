@@ -1,8 +1,8 @@
 package more.fun.mvp.ui.fragment;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,7 +10,6 @@ import org.easy.tools.utils.UiUtils;
 
 import more.fun.mvp.R;
 import more.fun.mvp.base.LazyFragment;
-import more.fun.mvp.entity.HotTabs;
 import more.fun.mvp.ui.adapter.DiscoveryHotPagerAdapter;
 
 /**
